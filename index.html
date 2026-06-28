@@ -521,33 +521,66 @@
       /* Projects Section */
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 2rem;
       }
 
+      /* ==============================
+      GLASSMORPHISM PROJECT CARD
+================================*/
+
       .project-card {
-        background: var(--surface);
-        border-radius: 20px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: all 0.4s;
         position: relative;
+
+        overflow: hidden;
+
+        border-radius: 24px;
+
+        padding: 0;
+
+        background: rgba(255, 255, 255, 0.08);
+
+        backdrop-filter: blur(20px);
+
+        -webkit-backdrop-filter: blur(20px);
+
+        border: 1px solid rgba(255, 255, 255, 0.15);
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+        transition: all 0.45s ease;
+
+        cursor: pointer;
       }
 
+      /* Hover Effect */
+
       .project-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.4);
-        border-color: rgba(99, 102, 241, 0.3);
+        transform: translateY(-15px) scale(1.02);
+
+        box-shadow: 0 20px 50px rgba(99, 102, 241, 0.35);
+
+        border-color: rgba(99, 102, 241, 0.5);
       }
 
       .project-image {
         height: 220px;
-        background: linear-gradient(135deg, var(--dark-light), var(--dark));
-        position: relative;
-        overflow: hidden;
+
         display: flex;
-        align-items: center;
+
         justify-content: center;
+
+        align-items: center;
+
+        font-size: 70px;
+
+        background: linear-gradient(135deg, #0673b7, #fffcfc, #06b6d4);
+
+        color: white;
+
+        position: relative;
+
+        overflow: hidden;
       }
 
       .project-image i {
@@ -563,14 +596,24 @@
 
       .project-overlay {
         position: absolute;
+
         inset: 0;
-        background: rgba(15, 23, 42, 0.9);
+
         display: flex;
-        align-items: center;
+
         justify-content: center;
-        gap: 1rem;
+
+        align-items: center;
+
+        gap: 20px;
+
+        background: rgba(15, 23, 42, 0.65);
+
         opacity: 0;
-        transition: opacity 0.4s;
+
+        transition: 0.4s;
+
+        backdrop-filter: blur(8px);
       }
 
       .project-card:hover .project-overlay {
@@ -600,7 +643,7 @@
       }
 
       .project-info {
-        padding: 1.5rem;
+        padding: 25px;
       }
 
       .project-tags {
@@ -611,12 +654,31 @@
       }
 
       .project-tag {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.75rem;
-        background: rgba(99, 102, 241, 0.1);
-        color: var(--primary);
-        border-radius: 20px;
-        font-weight: 500;
+        display: inline-block;
+
+        padding: 7px 15px;
+
+        margin: 5px;
+
+        border-radius: 50px;
+
+        background: rgba(99, 102, 241, 0.18);
+
+        border: 1px solid rgba(99, 102, 241, 0.35);
+
+        color: #100605;
+
+        font-size: 13px;
+
+        font-weight: 600;
+
+        transition: 0.3s;
+      }
+
+      .project-tag:hover {
+        background: #6366f1;
+
+        color: white;
       }
 
       .project-info h3 {
@@ -937,12 +999,352 @@
           padding: 4rem 1.5rem;
         }
       }
+      /* ===========================
+        LOADER
+=========================== */
+
+      #loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0f172a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999999;
+        transition:
+          opacity 0.8s ease,
+          visibility 0.8s ease;
+      }
+
+      .loader-content {
+        text-align: center;
+      }
+
+      .loader-logo {
+        font-size: 55px;
+        font-weight: 900;
+
+        background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4);
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        letter-spacing: 4px;
+
+        animation: zoom 1s infinite alternate;
+      }
+
+      .loader-text {
+        color: white;
+
+        margin-top: 20px;
+
+        font-size: 20px;
+
+        letter-spacing: 2px;
+      }
+
+      .loading-bar {
+        width: 280px;
+
+        height: 8px;
+
+        background: #1e293b;
+
+        border-radius: 20px;
+
+        overflow: hidden;
+
+        margin-top: 25px;
+      }
+
+      .loading-progress {
+        width: 0;
+
+        height: 100%;
+
+        background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4);
+
+        animation: loading 2.5s forwards;
+      }
+
+      @keyframes loading {
+        0% {
+          width: 0%;
+        }
+
+        100% {
+          width: 100%;
+        }
+      }
+
+      @keyframes zoom {
+        from {
+          transform: scale(0.95);
+        }
+
+        to {
+          transform: scale(1.05);
+        }
+      }
+
+      .loader-hidden {
+        opacity: 0;
+
+        visibility: hidden;
+      }
+      /* ===========================
+      THEME TOGGLE BUTTON
+=========================== */
+
+      .theme-toggle {
+        position: relative;
+
+        width: 48px;
+
+        height: 48px;
+
+        border: none;
+
+        outline: none;
+
+        cursor: pointer;
+
+        border-radius: 50%;
+
+        background: #1e293b;
+
+        color: #fff;
+
+        font-size: 20px;
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+        transition: 0.4s;
+
+        z-index: 9999;
+
+        flex-shrink: 0;
+      }
+
+      .theme-toggle:hover {
+        transform: rotate(180deg) scale(1.08);
+
+        background: #6366f1;
+      }
+
+      body {
+        transition:
+          background 0.5s,
+          color 0.5s;
+      }
+
+      /* ===========================
+      LIGHT MODE
+=========================== */
+
+      body.light-mode {
+        background: #f8fafc;
+
+        color: #1e293b;
+      }
+
+      body.light-mode header {
+        background: #ffffff;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      body.light-mode nav {
+        background: #ffffff;
+      }
+
+      body.light-mode .project-card {
+        background: #ffffff;
+
+        color: #111827;
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      body.light-mode .skill-card {
+        background: #ffffff;
+
+        color: #111827;
+      }
+
+      body.light-mode .timeline-content {
+        background: #ffffff;
+
+        color: #111827;
+      }
+
+      body.light-mode footer {
+        background: #e2e8f0;
+
+        color: #111827;
+      }
+      /* ==========================
+      PROFILE IMAGE
+========================== */
+
+      .hero-image {
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        position: relative;
+      }
+
+      .profile-ring {
+        width: 340px;
+
+        height: 340px;
+
+        border-radius: 50%;
+
+        padding: 8px;
+
+        background: linear-gradient(45deg, #00f5ff, #6d5dfc, #ff00cc, #00f5ff);
+
+        background-size: 400% 400%;
+
+        animation:
+          rotateRing 8s linear infinite,
+          gradientMove 8s ease infinite,
+          floatImage 4s ease-in-out infinite;
+
+        box-shadow:
+          0 0 35px rgba(0, 255, 255, 0.35),
+          0 0 80px rgba(109, 93, 252, 0.35);
+      }
+
+      .profile-img {
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: cover;
+
+        border-radius: 50%;
+
+        border: 6px solid #0f172a;
+
+        display: block;
+      }
+
+      @keyframes rotateRing {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      @keyframes floatImage {
+        0% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-12px);
+        }
+
+        100% {
+          transform: translateY(0);
+        }
+      }
+      .profile-ring:hover {
+        transform: scale(1.05);
+
+        transition: 0.4s;
+      }
+      /* Animated Gradient Border */
+
+      .project-card::before {
+        content: "";
+
+        position: absolute;
+
+        top: -2px;
+
+        left: -2px;
+
+        right: -2px;
+
+        bottom: -2px;
+
+        background: linear-gradient(45deg, #6366f1, #06b6d4, #8b5cf6, #6366f1);
+
+        background-size: 400% 400%;
+
+        border-radius: 24px;
+
+        z-index: -1;
+
+        animation: borderAnimation 8s linear infinite;
+
+        opacity: 0;
+
+        transition: 0.4s;
+      }
+
+      .project-card:hover::before {
+        opacity: 1;
+      }
+
+      @keyframes borderAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+
+        100% {
+          background-position: 0% 50%;
+        }
+      }
     </style>
+    <base target="_blank" />
   </head>
   <body>
+    <!-- ================= LOADER ================= -->
+    <div id="loader">
+      <div class="loader-content">
+        <div class="loader-logo">VASANTH D</div>
+
+        <div class="loader-text">Loading Portfolio...</div>
+
+        <div class="loading-bar">
+          <div class="loading-progress"></div>
+        </div>
+      </div>
+    </div>
     <!-- Navigation -->
     <nav id="navbar">
       <div class="nav-container">
+        <button id="theme-toggle" class="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
         <a href="#" class="logo">Heyyyy!!!!</a>
         <ul class="nav-links" id="navLinks">
           <li><a href="#home" class="active">Home</a></li>
@@ -964,15 +1366,18 @@
     <section class="hero" id="home">
       <div class="hero-bg"></div>
       <div class="hero-content">
-        <div class="hero-badge">Available for Freelance Work</div>
         <h1>Hi, I'm <span>Vasanth</span></h1>
         <div class="typing-text">
           I build <span id="type-text"></span><span class="cursor"></span>
         </div>
+        <div class="hero-badge">
+          MCA Student • Full Stack Developer • AI Enthusiast
+        </div>
         <p class="hero-desc">
-          Full Stack Developer specializing in building exceptional digital
-          experiences. Passionate about clean code, modern design, and
-          innovative solutions.
+          Passionate MCA student specializing in Full Stack Development,
+          Artificial Intelligence, Machine Learning, Data Analytics, and Cyber
+          Security. I enjoy building intelligent software solutions that solve
+          real-world problems using modern technologies.
         </p>
         <div class="hero-buttons">
           <a href="#projects" class="btn btn-primary"
@@ -1038,10 +1443,7 @@
       </div>
       <div class="about-grid fade-in">
         <div class="about-image">
-          <img
-            src="D:\Projects\CodeAlpha_Portfolio\20240101085206_IMG_1050.JPG"
-            alt="Profile"
-          />
+          <img src="profile.JPG" alt="Profile" />
         </div>
         <div class="about-content">
           <h3>Who am I?</h3>
@@ -1404,7 +1806,7 @@
             </div>
           </div>
           <a
-            href="D:\Projects\CodeAlpha_Portfolio\D Vasanth Resume.pdf"
+            href="Vasanth_D_Resume.pdf"
             class="btn btn-primary download-btn"
             download="Vasanth_D_Resume.pdf"
           >
@@ -1454,17 +1856,31 @@
             </div>
           </div>
         </div>
-        <form class="contact-form" id="contactForm">
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/mlgynbbr"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="New Portfolio Contact" />
+
+          <input type="hidden" name="_captcha" value="false" />
           <div class="form-status" id="formStatus"></div>
           <div class="form-group">
             <label for="name">Your Name</label>
-            <input type="text" id="name" placeholder="John Doe" required />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="John Doe"
+              required
+            />
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
             <input
               type="email"
               id="email"
+              name="email"
               placeholder="john@example.com"
               required
             />
@@ -1474,6 +1890,7 @@
             <input
               type="text"
               id="subject"
+              name="subject"
               placeholder="Project Inquiry"
               required
             />
@@ -1482,6 +1899,7 @@
             <label for="message">Message</label>
             <textarea
               id="message"
+              name="message"
               placeholder="Tell me about your project..."
               required
             ></textarea>
@@ -1516,11 +1934,21 @@
     <script>
       // Typing Effect
       const words = [
-        "Web Applications",
-        "Mobile Apps",
-        "User Interfaces",
-        "Digital Products",
-        "Solutions",
+        "Full Stack Applications",
+
+        "Python Projects",
+
+        "AI Solutions",
+
+        "Machine Learning Models",
+
+        "Data Analytics Dashboards",
+
+        "Java Applications",
+
+        "Cyber Security Projects",
+
+        "Modern Web Applications",
       ];
       let wordIndex = 0;
       let charIndex = 0;
@@ -1621,23 +2049,6 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
-      // Contact Form
-      document.getElementById("contactForm").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const status = document.getElementById("formStatus");
-        const name = document.getElementById("name").value;
-
-        // Simulate form submission
-        status.className = "form-status success";
-        status.innerHTML = `<i class="fas fa-check-circle"></i> Thanks ${name}! Your message has been sent successfully.`;
-        e.target.reset();
-
-        setTimeout(() => {
-          status.className = "form-status";
-          status.innerHTML = "";
-        }, 5000);
-      });
-
       // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
@@ -1646,6 +2057,42 @@
           if (target)
             target.scrollIntoView({ behavior: "smooth", block: "start" });
         });
+      });
+      //==================
+      // Loader
+      //==================
+
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.getElementById("loader").classList.add("loader-hidden");
+        }, 2500);
+      });
+      // ==========================
+      // DARK / LIGHT MODE
+      // ==========================
+
+      const themeBtn = document.getElementById("theme-toggle");
+
+      const savedTheme = localStorage.getItem("theme");
+
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+
+        themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+      }
+
+      themeBtn.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+
+        if (document.body.classList.contains("light-mode")) {
+          themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+
+          localStorage.setItem("theme", "light");
+        } else {
+          themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+
+          localStorage.setItem("theme", "dark");
+        }
       });
     </script>
   </body>
