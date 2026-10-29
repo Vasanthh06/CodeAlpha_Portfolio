@@ -1324,7 +1324,7 @@
         }
       }
             /* Fix for mobile hover overlay */
-            @media (max-width: 768px) {
+      @media (max-width: 768px) {
         .project-card:hover .project-overlay {
           opacity: 0; /* Hides overlay on mobile tap */
         }
@@ -1609,32 +1609,47 @@
       <div class="projects-grid">
         <!-- Project 1 -->
                 <!-- Project 0: ShopZone (Featured) -->
-                <div class="project-card fade-in">
-                  <div class="project-image" style="background: linear-gradient(135deg, #0f172a, #1e293b); display: flex; flex-direction: column;">
-                    <div style="color: #10b981; font-size: 24px; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px;">SHOPZONE</div>
-                    <div style="color: #94a3b8; font-size: 13px; font-weight: 500;">AI FRAUD DETECTION</div>
-                    <div class="project-overlay">
-                      <a href="https://www.fraudetect.site" target="_blank" title="View Live Site"><i class="fas fa-external-link-alt"></i></a>
-                      <a href="https://github.com/Vasanthh06/Fraud_Detection_System" target="_blank" title="View Source Code"><i class="fab fa-github"></i></a>
-                    </div>
-                  </div>
-        
-                  <div class="project-info">
-                    <div class="project-tags">
-                      <span class="project-tag">FastAPI</span>
-                      <span class="project-tag">Python</span>
-                      <span class="project-tag">Scikit-Learn</span>
-                      <span class="project-tag">PostgreSQL</span>
-                      <span class="project-tag">Resend API</span>
-                    </div>
-        
-                    <h3>Fraud Detection System: AI Fraud Detection E-Commerce</h3>
-        
-                    <p>
-                      A production-ready e-commerce platform featuring an intelligent, real-time fraud detection system. Built with a FastAPI backend and a Random Forest ML model, it evaluates transaction risks instantly. Includes secure JWT authentication, Neon Serverless Postgres, automated transactional emails via Resend, and a fully responsive frontend.
-                    </p>
-                  </div>
-                </div>
+                       <!-- Project 0: ShopZone (Featured) -->
+        <div class="project-card fade-in">
+          <!-- Image Header -->
+          <div class="project-image" style="background: linear-gradient(135deg, #0f172a, #1e293b); display: flex; flex-direction: column;">
+            <div style="color: #10b981; font-size: 24px; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px;">SHOPZONE</div>
+            <div style="color: #94a3b8; font-size: 13px; font-weight: 500;">AI FRAUD DETECTION</div>
+            
+            <!-- Overlay for PC Hover -->
+            <div class="project-overlay">
+              <a href="https://www.fraudetect.site" target="_blank" title="View Live Site"><i class="fas fa-external-link-alt"></i></a>
+              <a href="https://github.com/Vasanthh06/Fraud_Detection_System" target="_blank" title="View Source Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+
+          <!-- Info Section -->
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">FastAPI</span>
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Scikit-Learn</span>
+              <span class="project-tag">PostgreSQL</span>
+              <span class="project-tag">Resend API</span>
+            </div>
+
+            <h3>ShopZone: AI Fraud Detection E-Commerce</h3>
+
+            <p>
+              A production-ready e-commerce platform featuring an intelligent, real-time fraud detection system. Built with a FastAPI backend and a Random Forest ML model, it evaluates transaction risks instantly. Includes secure JWT authentication, Neon Serverless Postgres, automated transactional emails via Resend, and a fully responsive frontend.
+            </p>
+
+            <!-- ALWAYS VISIBLE BUTTONS FOR MOBILE & PC -->
+            <div style="margin-top: 15px; display: flex; gap: 10px;">
+              <a href="https://www.fraudetect.site" target="_blank" class="btn btn-primary" style="padding: 8px 16px; font-size: 13px;">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+              <a href="https://github.com/Vasanthh06/Fraud_Detection_System" target="_blank" class="btn btn-outline" style="padding: 8px 16px; font-size: 13px;">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
 
         <!-- Project 2 -->
         <div class="project-card fade-in">
