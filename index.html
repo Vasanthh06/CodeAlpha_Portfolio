@@ -1323,6 +1323,15 @@
           background-position: 0% 50%;
         }
       }
+            /* Fix for mobile hover overlay */
+            @media (max-width: 768px) {
+        .project-card:hover .project-overlay {
+          opacity: 0; /* Hides overlay on mobile tap */
+        }
+        .project-card .project-overlay {
+          display: none; /* Completely hide overlay on mobile to keep it clean */
+        }
+      }
     </style>
     <base target="_blank" />
   </head>
@@ -1601,12 +1610,11 @@
         <!-- Project 1 -->
                 <!-- Project 0: ShopZone (Featured) -->
                 <div class="project-card fade-in">
-                  <div class="project-image" style="background: linear-gradient(135deg, #10b981, #0f172a);">
-                    <i class="fas fa-shield-alt"></i>
+                  <div class="project-image" style="background: linear-gradient(135deg, #0f172a, #1e293b); display: flex; flex-direction: column;">
+                    <div style="color: #10b981; font-size: 24px; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px;">SHOPZONE</div>
+                    <div style="color: #94a3b8; font-size: 13px; font-weight: 500;">AI FRAUD DETECTION</div>
                     <div class="project-overlay">
-                      <!-- Change the href to your live link -->
                       <a href="https://www.fraudetect.site" target="_blank" title="View Live Site"><i class="fas fa-external-link-alt"></i></a>
-                      <!-- Change the href to your GitHub Repo link -->
                       <a href="https://github.com/Vasanthh06/Fraud_Detection_System" target="_blank" title="View Source Code"><i class="fab fa-github"></i></a>
                     </div>
                   </div>
@@ -1620,7 +1628,7 @@
                       <span class="project-tag">Resend API</span>
                     </div>
         
-                    <h3>ShopZone: AI Fraud Detection E-Commerce</h3>
+                    <h3>Fraud Detection System: AI Fraud Detection E-Commerce</h3>
         
                     <p>
                       A production-ready e-commerce platform featuring an intelligent, real-time fraud detection system. Built with a FastAPI backend and a Random Forest ML model, it evaluates transaction risks instantly. Includes secure JWT authentication, Neon Serverless Postgres, automated transactional emails via Resend, and a fully responsive frontend.
